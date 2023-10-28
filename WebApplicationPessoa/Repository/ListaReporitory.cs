@@ -4,12 +4,12 @@ namespace WebApplicationPessoa.Repository
 {
     public class ListaReporitory
     {
-        static private List<PessoaModel>? listaPessoaModel { get; set; }
+        static private List<PessoaModel>? ListaPessoaModel { get; set; }
         public ListaReporitory()
         {
-            if(listaPessoaModel == null)
+            if(ListaPessoaModel == null)
             {
-                listaPessoaModel =
+                ListaPessoaModel =
                     new List<PessoaModel>()
                     {
                     new PessoaModel(1,"exemplo1","exemplo1.gmail.com", "+55 11 98888 7654"),
@@ -19,18 +19,18 @@ namespace WebApplicationPessoa.Repository
         }
         public List<PessoaModel> GetListaPessoaModel (int? id)
         {
-            return (listaPessoaModel ?? new List<PessoaModel>()).Where(l => l.Id == (id ?? l.Id)).ToList();
+            return (ListaPessoaModel ?? new List<PessoaModel>()).Where(l => l.Id == (id ?? l.Id)).ToList();
         }
         public string AdicionarPessoa(int? id, string? nome, string? email, string? telefone)
         {
             bool result = false;
-            if (listaPessoaModel != null)
+            if (ListaPessoaModel != null)
             {
-                PessoaModel? pessoaModel = listaPessoaModel.Find(l => l.Id == id);
+                PessoaModel? pessoaModel = ListaPessoaModel.Find(l => l.Id == id);
                 if (pessoaModel == null)
                 {
-                    int count = listaPessoaModel.Count + 1;
-                    listaPessoaModel.Add(new PessoaModel(
+                    int count = ListaPessoaModel.Count + 1;
+                    ListaPessoaModel.Add(new PessoaModel(
                         id ?? count,
                         nome ?? string.Format("Pessoa{0}", count),
                         email ?? string.Format("Pessoa{0}@gmail.com", count),
@@ -43,9 +43,9 @@ namespace WebApplicationPessoa.Repository
         public string AlterarPessoa(int id, string? nome, string? email, string ?telefone)
         {
             bool result = false;
-            if (listaPessoaModel != null)
+            if (ListaPessoaModel != null)
             {
-                PessoaModel? pessoaModel = listaPessoaModel.Find(l => l.Id == id);
+                PessoaModel? pessoaModel = ListaPessoaModel.Find(l => l.Id == id);
                 if (pessoaModel != null)
                 {
                     pessoaModel.Nome = nome ?? pessoaModel.Nome; 
@@ -59,12 +59,12 @@ namespace WebApplicationPessoa.Repository
         public string DeletarPessoa(int id)
         {
             bool result = false;
-            if (listaPessoaModel != null)
+            if (ListaPessoaModel != null)
             {
-                PessoaModel? pessoaModel = listaPessoaModel.Find(l => l.Id == id);
+                PessoaModel? pessoaModel = ListaPessoaModel.Find(l => l.Id == id);
                 if (pessoaModel != null)
                 {
-                    listaPessoaModel.Remove(pessoaModel);
+                    ListaPessoaModel.Remove(pessoaModel);
                     result = true;
                 }
             }
