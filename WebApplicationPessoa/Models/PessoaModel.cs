@@ -1,6 +1,6 @@
 ﻿namespace WebApplicationPessoa.Models
 {
-    public class PessoaModel
+    public class PessoaModel: IPessoaModel
     {
         public int Id { get; set; }
         public string ?Nome { get; set; }
