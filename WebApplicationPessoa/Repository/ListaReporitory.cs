@@ -7,15 +7,12 @@ namespace WebApplicationPessoa.Repository
         static private List<PessoaModel>? ListaPessoaModel { get; set; }
         public ListaReporitory()
         {
-            if(ListaPessoaModel == null)
-            {
-                ListaPessoaModel =
+            ListaPessoaModel ??=
                     new List<PessoaModel>()
                     {
                     new PessoaModel(1,"exemplo1","exemplo1.gmail.com", "+55 11 98888 7654"),
                     new PessoaModel(2,"exemplo2","exemplo2.gmail.com", "+55 11 98877 1234")
                     };
-            }
         }
         public List<PessoaModel> GetListaPessoaModel (int? id)
         {
