@@ -2,9 +2,10 @@
 
 namespace WebApplicationPessoa.Repository
 {
-    public class ListaReporitory
+    public class ListaReporitory:IListaRepository
     {
         static private List<PessoaModel>? ListaPessoaModel { get; set; }
+
         public ListaReporitory()
         {
             ListaPessoaModel ??=
